@@ -1,8 +1,9 @@
+import { fileURLToPath } from 'node:url';
 import { dirname, resolve } from 'node:path';
 import { cp } from 'node:fs/promises';
 
 const copy = async () => {
-  const { filename } = import.meta;
+  const filename = fileURLToPath(import.meta.url);
 
   const __dirName = dirname(filename);
   const pathToSource = resolve(__dirName, 'files');

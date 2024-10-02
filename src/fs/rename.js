@@ -1,5 +1,6 @@
 import { dirname, resolve } from 'node:path';
 import { rename as renameOrigin, stat } from 'node:fs/promises';
+import { fileURLToPath } from 'node:url';
 
 const isFileExist = async (absolutePath) => {
   try {
@@ -11,7 +12,7 @@ const isFileExist = async (absolutePath) => {
 };
 
 const rename = async () => {
-  const { filename } = import.meta;
+  const filename = fileURLToPath(import.meta.url);
 
   const __dirname = dirname(filename);
   const pathToSource = resolve(__dirname, 'files', 'wrongFilename.txt');

@@ -1,8 +1,9 @@
 import { dirname, resolve } from 'node:path';
 import { readdir } from 'node:fs/promises';
+import { fileURLToPath } from 'node:url';
 
 const list = async () => {
-  const { filename } = import.meta;
+  const filename = fileURLToPath(import.meta.url);
 
   const __dirname = dirname(filename);
   const pathToReadDir = resolve(__dirname, 'files');

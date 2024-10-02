@@ -1,9 +1,10 @@
 import { writeFile } from 'node:fs/promises';
 import { dirname, resolve } from 'node:path';
+import { fileURLToPath } from 'node:url';
 
 const create = async () => {
   const data = 'I am fresh and young';
-  const { filename } = import.meta;
+  const filename = fileURLToPath(import.meta.url);
   const __dirName = dirname(filename);
 
   const pathToNewFile = resolve(__dirName, 'files', 'fresh.txt');
