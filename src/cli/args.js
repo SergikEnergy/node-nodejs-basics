@@ -1,7 +1,5 @@
-import { argv } from 'node:process';
-
 const parseArgs = () => {
-  const customArgv = argv.slice(2);
+  const customArgv = process.argv.slice(2);
 
   const result = customArgv.reduce((acc, curr, ind) => {
     if (curr.startsWith('--')) {
